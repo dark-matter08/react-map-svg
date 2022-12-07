@@ -157,6 +157,8 @@ export const Map = () => {
       var yPosition = e.clientY;
       console.log(xPosition, yPosition);
 
+      console.log(window);
+
       var bw = document.width() / 2;
       var bh = document.height() / 2;
       console.log(bw, bh);

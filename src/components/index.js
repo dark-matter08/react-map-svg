@@ -1,2 +1,3 @@
 import { Map } from "./map/map.component";
-export { Map };
+import { ChartMap } from "./chart-map/chart-map.component";
+export { Map, ChartMap };

@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { Map } from "./components";
+import { ChartMap, Map } from "./components";
 
 function App() {
   return (
@@ -21,7 +21,8 @@ function App() {
             );
           })}
         </div> */}
-        <Map />
+        <ChartMap />
+        {/* <Map /> */}
       </header>
     </div>
   );

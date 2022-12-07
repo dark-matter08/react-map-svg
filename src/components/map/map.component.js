@@ -157,18 +157,19 @@ export const Map = () => {
       var yPosition = e.clientY;
       console.log(xPosition, yPosition);
 
-      console.log(window);
-
-      var bw = document.width() / 2;
-      var bh = document.height() / 2;
-      console.log(bw, bh);
+      var x = window.innerWidth / 2;
+      var y = window.innerHeight / 2;
+      console.log(x, y);
 
       //   -=============== sub code ================-
       if (e.target.nodeName === "path") {
-        console.log(target.attributes);
+        console.log(target.attributes.class.value);
         // map.style.transform = "translate(-" + 0 + "px,-" + 0 + "px) scale(2)";
-        map.style.left = xPosition + "px";
-        map.style.top = yPosition + "px";
+        if (target.attributes.class.value === "land") {
+          console.log("yay, land");
+        }
+        target.style.left = x + "px";
+        target.style.top = y + "px";
         map.style.transition = "0.6s ease-out";
       } else {
         map.style.transform = "translate(-" + 0 + "px,-" + 0 + "px) scale(1)";

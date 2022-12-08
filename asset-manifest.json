@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.e6c9148c.css",
-    "main.js": "/static/js/main.f7180ec8.js",
-    "pdfmake.js": "/static/js/pdfmake.0931d536.chunk.js",
-    "canvg.js": "/static/js/canvg.1bf667ac.chunk.js",
-    "xlsx.js": "/static/js/xlsx.91e39e3b.chunk.js",
-    "static/js/787.e49c0add.chunk.js": "/static/js/787.e49c0add.chunk.js",
-    "index.html": "/index.html",
-    "main.e6c9148c.css.map": "/static/css/main.e6c9148c.css.map",
-    "main.f7180ec8.js.map": "/static/js/main.f7180ec8.js.map",
-    "pdfmake.0931d536.chunk.js.map": "/static/js/pdfmake.0931d536.chunk.js.map",
-    "canvg.1bf667ac.chunk.js.map": "/static/js/canvg.1bf667ac.chunk.js.map",
-    "xlsx.91e39e3b.chunk.js.map": "/static/js/xlsx.91e39e3b.chunk.js.map",
-    "787.e49c0add.chunk.js.map": "/static/js/787.e49c0add.chunk.js.map"
+    "main.css": "/react-map-svg/static/css/main.e6c9148c.css",
+    "main.js": "/react-map-svg/static/js/main.ffd331d1.js",
+    "pdfmake.js": "/react-map-svg/static/js/pdfmake.0931d536.chunk.js",
+    "canvg.js": "/react-map-svg/static/js/canvg.1bf667ac.chunk.js",
+    "xlsx.js": "/react-map-svg/static/js/xlsx.91e39e3b.chunk.js",
+    "static/js/787.e49c0add.chunk.js": "/react-map-svg/static/js/787.e49c0add.chunk.js",
+    "index.html": "/react-map-svg/index.html",
+    "main.e6c9148c.css.map": "/react-map-svg/static/css/main.e6c9148c.css.map",
+    "main.ffd331d1.js.map": "/react-map-svg/static/js/main.ffd331d1.js.map",
+    "pdfmake.0931d536.chunk.js.map": "/react-map-svg/static/js/pdfmake.0931d536.chunk.js.map",
+    "canvg.1bf667ac.chunk.js.map": "/react-map-svg/static/js/canvg.1bf667ac.chunk.js.map",
+    "xlsx.91e39e3b.chunk.js.map": "/react-map-svg/static/js/xlsx.91e39e3b.chunk.js.map",
+    "787.e49c0add.chunk.js.map": "/react-map-svg/static/js/787.e49c0add.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c9148c.css",
-    "static/js/main.f7180ec8.js"
+    "static/js/main.ffd331d1.js"
   ]
 }

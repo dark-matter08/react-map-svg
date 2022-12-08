@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { ChartMap } from "./components";
+import { ChartMap, ChartMapExtended } from "./components";
 import am4geodata_cameroonLow from "@amcharts/amcharts4-geodata/cameroonLow";
 import am4geodata_germanyLow from "@amcharts/amcharts4-geodata/germanyLow";
 
@@ -50,14 +50,25 @@ function App() {
   ];
   return (
     <div className="App">
-      <header className="App-header h-screen">
-        <ChartMap
-          marker_data={empl_data}
-          projection="Miller"
-          code_geodata={code_geodata}
-        />
-        {/* <Map /> */}
-      </header>
+      <div className="flex flex-row">
+        <div className="w-[50%] min-h-[500px]">
+          <ChartMap
+            marker_data={empl_data}
+            projection="Miller"
+            code_geodata={code_geodata}
+          />
+          {/* <Map /> */}
+        </div>
+
+        <div className="w-[50%] min-h-[500px]">
+          <ChartMapExtended
+            marker_data={empl_data}
+            projection="Miller"
+            code_geodata={code_geodata}
+          />
+          {/* <Map /> */}
+        </div>
+      </div>
     </div>
   );
 }

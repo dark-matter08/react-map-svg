@@ -100,6 +100,9 @@ export const ChartMap = ({
       // zoom to country on click
       countryTemplate.events.on("hit", function (ev) {
         ev.target.series.chart.zoomToMapObject(ev.target);
+        const country = ev.target.dataItem.dataContext.CNTRY;
+        const placeName = ev.target.dataItem.dataContext.name;
+        console.log(`clicked on ${placeName} - ${country}`);
       });
 
       // Create hover state and set alternative fill color
@@ -154,5 +157,11 @@ export const ChartMap = ({
     addAntartica,
   ]);
 
-  return <div id="chartdiv" style={{ width: "100%", height: "100%" }}></div>;
+  return (
+    <div
+      id="chartdiv"
+      className="border-2"
+      style={{ width: "100%", height: "100%" }}
+    ></div>
+  );
 };

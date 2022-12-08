@@ -1,2 +1,4 @@
 import { ChartMap } from "./chart-map/chart-map.component";
-export { ChartMap };
+import { ChartMapExtended } from "./chart-map-extended/chart-map-extended.component";
+
+export { ChartMap, ChartMapExtended };

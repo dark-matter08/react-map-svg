@@ -9,37 +9,37 @@ function App() {
     {
       latitude: 5.9597,
       longitude: 10.14597,
-      title: "Bamenda: 4",
+      title: "Bamenda: 4 Employees",
     },
     {
       latitude: 3.86667,
       longitude: 11.51667,
-      title: "Yaoundé: 6",
+      title: "Yaoundé: 6 Employees",
     },
     {
       latitude: 4.04827,
       longitude: 9.70428,
-      title: "Douala: 10",
+      title: "Douala: 10 Employees",
     },
     {
       latitude: 4.15342,
       longitude: 9.24231,
-      title: "Buea: 60",
+      title: "Buea: 60 Employees",
     },
     {
       latitude: 52.52437,
       longitude: 13.41053,
-      title: "Berlin: 2",
+      title: "Berlin: 2 Employees",
     },
     {
       latitude: 48.13743,
       longitude: 11.57549,
-      title: "Munich: 2",
+      title: "Munich: 2 Employees",
     },
     {
       latitude: 47.77435,
       longitude: 7.64142,
-      title: "Feldberg (Black Forest)",
+      title: "Feldberg (Black Forest): 2 Employees",
     },
   ];
 

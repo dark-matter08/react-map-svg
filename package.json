@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "main": "src/index.js",
+  "homepage": "https://dark-matter08.github.io/react-map-svg/",
   "dependencies": {
     "@amcharts/amcharts4": "^4.10.30",
     "@amcharts/amcharts4-geodata": "^4.1.26",

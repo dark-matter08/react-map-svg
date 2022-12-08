@@ -27,6 +27,13 @@ export const ChartMap = ({
     map.geodata = am4geodata_worldLow;
     map.zoomControl = new am4maps.ZoomControl();
 
+    let home = map.chartContainer.createChild(am4core.Button);
+    home.label.text = "Reset";
+    home.align = "right";
+    home.events.on("hit", function (ev) {
+      map.goHome();
+    });
+
     // configure projection
 
     if (projection === "Albers") {

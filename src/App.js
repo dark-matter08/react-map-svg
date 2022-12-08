@@ -1,6 +1,8 @@
 import "./App.css";
 
 import { ChartMap } from "./components";
+import am4geodata_cameroonLow from "@amcharts/amcharts4-geodata/cameroonLow";
+import am4geodata_germanyLow from "@amcharts/amcharts4-geodata/germanyLow";
 
 function App() {
   const empl_data = [
@@ -40,10 +42,20 @@ function App() {
       title: "Feldberg (Black Forest)",
     },
   ];
+
+  // example of code geodata to be sent to component
+  const code_geodata = [
+    { code: "DE", geodata: am4geodata_cameroonLow },
+    { code: "CM", geodata: am4geodata_germanyLow },
+  ];
   return (
     <div className="App">
       <header className="App-header h-screen">
-        <ChartMap marker_data={empl_data} projection="Miller" />
+        <ChartMap
+          marker_data={empl_data}
+          projection="Miller"
+          code_geodata={code_geodata}
+        />
         {/* <Map /> */}
       </header>
     </div>

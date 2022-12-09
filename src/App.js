@@ -50,23 +50,24 @@ function App() {
   ];
   return (
     <div className="App">
-      <div className="flex flex-row">
-        <div className="w-[50%] min-h-[500px]">
-          <ChartMap
-            marker_data={empl_data}
-            projection="Miller"
-            code_geodata={code_geodata}
-          />
-          {/* <Map /> */}
-        </div>
-
-        <div className="w-[50%] min-h-[500px]">
+      <div className="App-header">
+        <h1 className="my-3 font-bold text-3xl">
+          The Extended AMChart with AM5
+        </h1>
+        <div className="w-full h-screen mb-20">
           <ChartMapExtended
             marker_data={empl_data}
             projection="Miller"
             code_geodata={code_geodata}
           />
-          {/* <Map /> */}
+        </div>
+        <h1 className="my-3 font-bold text-3xl">Default AMChart with AM4</h1>
+        <div className="w-[100%] h-screen">
+          <ChartMap
+            marker_data={empl_data}
+            projection="Miller"
+            code_geodata={code_geodata}
+          />
         </div>
       </div>
     </div>

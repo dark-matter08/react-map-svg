@@ -23,15 +23,15 @@ export const ChartMapExtended = ({
   code_geodata = [],
 }) => {
   useEffect(() => {
-    var continents = {
-      AF: 0,
-      AN: 1,
-      AS: 2,
-      EU: 3,
-      NA: 4,
-      OC: 5,
-      SA: 6,
-    };
+    // var continents = {
+    //   AF: 0,
+    //   AN: 1,
+    //   AS: 2,
+    //   EU: 3,
+    //   NA: 4,
+    //   OC: 5,
+    //   SA: 6,
+    // };
 
     var root = am5.Root.new("chartdiv-extended");
     var colors = am5.ColorSet.new(root, {});
@@ -55,12 +55,12 @@ export const ChartMapExtended = ({
     worldSeries.mapPolygons.template.setAll({
       tooltipText: "{name}",
       interactive: true,
-      fill: am5.color(0xaaaaaa),
+      fill: am5.color(world_fill),
       templateField: "polygonSettings",
     });
 
     worldSeries.mapPolygons.template.states.create("hover", {
-      fill: colors.getIndex(9),
+      fill: am5.color(world_hover),
     });
 
     worldSeries.mapPolygons.template.events.on("click", (ev) => {
@@ -78,12 +78,13 @@ export const ChartMapExtended = ({
         var geodata = am5.JSONParser.parse(results[1].response);
         countrySeries.setAll({
           geoJSON: geodata,
-          fill: data.polygonSettings.fill,
+          fill: am5.color(country_fill),
         });
 
         countrySeries.show();
         worldSeries.hide(100);
         backContainer.show();
+        home.hide();
       });
     });
 
@@ -115,13 +116,41 @@ export const ChartMapExtended = ({
             id: id,
             map: country.maps[0],
             polygonSettings: {
-              fill: colors.getIndex(continents[country.continent_code]),
+              fill: am5.color(world_fill),
             },
           });
         }
       }
     }
     worldSeries.data.setAll(data);
+
+    var pointSeries = chart.series.push(
+      am5map.MapPointSeries.new(root, {
+        latitudeField: "latitude",
+        longitudeField: "longitude",
+      })
+    );
+
+    pointSeries.bullets.push(function () {
+      let circle = am5.Circle.new(root, {
+        radius: 5,
+        fill: am5.color(marker_fill),
+        height: marker_dim,
+        width: marker_dim,
+        stroke: marker_stroke,
+        tooltipText: "{title}",
+        nonScalingStroke: true,
+      });
+      circle.events.on("click", function (ev) {
+        worldSeries.zoomToDataItem(ev.target.dataItem);
+        console.log(ev.target.dataItem);
+      });
+      return am5.Bullet.new(root, {
+        sprite: circle,
+      });
+    });
+
+    pointSeries.data.setAll(marker_data);
 
     // Add button to go back to continents view
     var backContainer = chart.children.push(
@@ -167,6 +196,38 @@ export const ChartMapExtended = ({
       worldSeries.show();
       countrySeries.hide();
       backContainer.hide();
+      home.show();
+    });
+
+    let home = chart.children.push(
+      am5.Container.new(root, {
+        x: am5.p100,
+        centerX: am5.p100,
+        dx: -10,
+        paddingTop: 5,
+        paddingRight: 10,
+        paddingBottom: 5,
+        y: 30,
+        interactiveChildren: false,
+        layout: root.horizontalLayout,
+        cursorOverStyle: "pointer",
+        background: am5.RoundedRectangle.new(root, {
+          fill: am5.color(0xffffff),
+          fillOpacity: 0.2,
+        }),
+        visible: true,
+      })
+    );
+
+    home.children.push(
+      am5.Label.new(root, {
+        text: "Reset",
+        centerY: am5.p50,
+      })
+    );
+
+    home.events.on("click", function () {
+      chart.goHome();
     });
 
     return () => {
@@ -194,8 +255,8 @@ export const ChartMapExtended = ({
   return (
     <div
       id="chartdiv-extended"
-      className="border-1 px-auto"
-      style={{ width: "500px", height: "100%" }}
+      className="border-2 border-dark px-auto"
+      style={{ width: "100%", height: "100%" }}
     ></div>
   );
 };

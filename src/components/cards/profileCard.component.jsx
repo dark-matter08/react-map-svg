@@ -2,6 +2,13 @@ import React from "react";
 import { to_top } from "../../assets/images";
 
 export const ProfileCard = ({ data }) => {
+  let image_url;
+  if (data.profileImage) {
+    image_url = `https://camsol.directus.app/assets/${data.profileImage.id}?access_token=HTxS57Xk52L6TtrMis7kaJ-FVtee_-5Z`;
+  } else {
+    image_url = "";
+  }
+
   const info = [
     { subject: "Status", text: "Active" },
     { subject: "Email", text: data.user_data.email },
@@ -19,7 +26,7 @@ export const ProfileCard = ({ data }) => {
       <div className={`flex flex-col text-ash items-center border-b-2`}>
         <img
           className={` h-1/2 md:h-1/3 w-1/2 md:w-1/3 lg:h-[225px] lg:w-[225px] bg-gray-500 rounded-full`}
-          src={to_top}
+          src={image_url}
           alt="user pic"
         />
         <h2

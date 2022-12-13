@@ -4,7 +4,7 @@ export const SkillCard = ({ data }) => {
   const skills = data.skills;
   return (
     <div
-      className={`h-fit w-full bg-white rounded-lg px-8 py-4 xl:px-12 xl:py-4 text-gray-500 flex flex-col gap-4`}
+      className={`h-1/3 truncate w-full bg-white rounded-lg px-8 py-4 xl:px-12 xl:py-4 text-gray-500 flex flex-col gap-4`}
     >
       <p>Skills</p>
       <div className={`flex space-x-4 flex-wrap`}>

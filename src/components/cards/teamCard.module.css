@@ -1,0 +1,23 @@
+.hex {
+    @apply block mx-auto my-0 w-[190px] bg-white box-border;
+    @apply h-[164.54px]; /* width * 0.866 */
+    @apply hover:cursor-pointer;
+    -webkit-clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+    -moz-clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+}
+
+
+.hexBg {
+    @apply absolute bg-black; /*color of the main-background*/
+    @apply top-[8px]; /* equal to border thickness */
+    @apply left-[8px]; /* equal to border thickness */
+    @apply w-[174px]; /* container width - (border thickness * 2) */
+    @apply h-[148.54px]; /* container height - (border thickness * 2) */
+    -webkit-clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+    -moz-clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+}
+.hex .img {
+    @apply absolute w-full h-full object-cover; 
+    -webkit-clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+    -moz-clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+}

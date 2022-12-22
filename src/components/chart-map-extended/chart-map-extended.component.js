@@ -6,7 +6,6 @@ import am5geodata_worldLow from "@amcharts/amcharts5-geodata/worldHigh";
 
 import am5geodata_data_countries2 from "@amcharts/amcharts5-geodata/data/countries2";
 
-import { NavLink } from "react-router-dom";
 import {
   About,
   ProfileCard,
@@ -24,6 +23,9 @@ import {
 } from "../../assets/images";
 import { eye, view_profile, closer, overlay } from "../../assets/svg";
 import styles from "./styles.module.css";
+import { TeamCard } from "../cards/teamCard.component";
+import { height } from "@amcharts/amcharts4/.internal/core/utils/Utils";
+import { Modal } from "../modal/modeal.component";
 // import { MapComponent } from "../components";
 // import bg from "./chart-map-extended";
 
@@ -274,141 +276,105 @@ export const ChartMapExtended = ({
   ]);
 
   const [open, setOpen] = useState(false);
-  const [enter, setEnter] = useState(false);
-  const [name, setName] = useState();
+  const [currentUser, setCurrentUser] = useState({});
   const info = [
-    { pic: img2, name: "Francis" },
-    { pic: img3, name: "Berinyuy" },
-    { pic: img4, name: "Yinyuy" },
-    { pic: img5, name: "Kobokko" },
-    { pic: img3, name: "Sonia Ame" },
-    { pic: img2, name: "Edwin Ajong" },
-    { pic: img3, name: "Tambe" },
-    { pic: img4, name: "Salome" },
-    { pic: img5, name: "Anyi" },
-    { pic: img2, name: "Atem" },
-    { pic: img3, name: "Asong" },
-    { pic: img4, name: "Randy" },
-    { pic: img5, name: "Anu" },
-    { pic: img2, name: "Bissshi" },
-    { pic: img3, name: "Leonardo" },
-    { pic: img5, name: "Jume" },
+    {
+      id: "55",
+      employeeID: null,
+      companySector: "Data Science",
+      user_data: {
+        userId: "77",
+        firstName: "Tanjoh",
+        lastName: "Noel",
+        email: "tanjohnoel@gmail.com",
+        phoneNumber: "+237653799758",
+        countryCode: "CM",
+        city: "Buea",
+      },
+      position: "Developer",
+      username: "Noel",
+      skills: ["Python", "Firebase", "DBMS - (MongoDB, SQL, etc)"],
+      team: {
+        id: "1",
+        team_name: "Data Science",
+      },
+      profileImage: {
+        id: "03dfb3a2-aaac-4d29-af32-c60bdff7c6ce",
+      },
+      linkedIn: null,
+      facebook: null,
+      twitter: null,
+      bio: "A detail-oriented Data Scientist with knowledge in Big Data, Data Visualisation, Machine Learning and Deep Learning.",
+      github: null,
+    },
+    {
+      id: "56",
+      employeeID: null,
+      companySector: "Data Science",
+      user_data: {
+        userId: "78",
+        firstName: "ABEH",
+        lastName: "SONG",
+        email: "abehsongkiss@gmail.com",
+        phoneNumber: "+237650331663",
+        countryCode: "CM",
+        city: "Buea",
+      },
+      position: "Developer",
+      username: "ABEH",
+      skills: ["Python", "DBMS - (MongoDB, SQL, etc)"],
+      team: {
+        id: "1",
+        team_name: "Data Science",
+      },
+      profileImage: {
+        id: "67abb74b-9a91-43c1-821a-3a5cd578aaa4",
+      },
+      linkedIn: null,
+      facebook: null,
+      twitter: null,
+      bio: " I am a Postgraduate student in Telecommunications and Networks. Due to my interest in problem solving in the sectors of business, telecommunications and health, I see Data Science as one of the ways via which I can provide solutions to some of the problems faced in the above mentioned sectors. Through Self-paced learning, I have been able to acquire skills in the areas of Machine Learning(Supervised and Unsupervised) , Data Analytics(RFM, Sentiment and Exploratory Data analysis), SQL Database Coding, Web Scraping and Data Visualization with Tableau, Seaborn, Plotly ,Matplot and Excel. With these skills, I will be very happy to work as a Data Science Intern or as a volunteer in any of the companies that opens its doors to me and help it achieve its goals. ",
+      github: null,
+    },
   ];
 
   return (
     // Modal goes here
-    <div className="w-screen box-border overflow-x-hidden h-fit font-[Inter] relative flex flex-col justify-between items-center bg-transparent bg-cover bg-no-repeat min-h-[100vh] bg-opacity-50">
-      {open ? (
-        <section
-          className={`m-auto p-2 lg:px-8 xl:px-12 bg-white w-full md:w-10/12 lg:w-11/12  xl:w-8/12 h-fit gap-4 xl:gap-4 py-2 xl:py-4 rounded-xl flex flex-col backdrop-blur-xl bg-opacity-50`}
-        >
-          <div
-            id="chartdiv-extended"
-            className="border-2 border-dark px-auto hidden"
-            style={{ width: "100%", height: "40vw" }}
-          ></div>
-          <img
-            className={`self-end p-2 rounded-xl hover:cursor-pointer hover:bg-gray-900`}
-            onClick={() => {
-              setOpen(false);
-            }}
-            src={closer}
-            alt="closer"
-          />
-          <div className={` flex flex-col lg:flex-row gap-4 xl:gap-6`}>
-            <div className={`w-full lg:w-5/12`}>
-              {" "}
-              <ProfileCard name={name} />
-            </div>
-            <div className={`flex flex-col w-full lg:w-7/12 gap-2 xl:gap-4`}>
-              <About />
-              <SkillCard />
-              <SocialMediaCard />
-            </div>
-          </div>
-        </section>
-      ) : (
-        <section className="w-screen box-border overflow-x-hidden h-fit font-[Inter] relative flex flex-col gap-7 items-center bg-gray-700 min-h-[100vh] p-12  ">
-          <div
-            className={`text-4xl font-bold text-white self-start flex  items-center gap-4 w-11/12`}
-          >
-            <p to="/">
-              <img
-                className="bg-white w-12 h-1/3 p-2 rounded-xl hover:cursor-pointer"
-                src={"https://cdn-icons-png.flaticon.com/512/318/318276.png"}
-                alt="back"
-              />
-            </p>
-            Team
-          </div>
 
-          <div
-            id="chartdiv-extended"
-            className="border-2 border-dark px-auto h-1/3 lg:h-[60vh]"
-            style={{ width: "100%" }}
-          ></div>
-          <div
-            className={` overflow-auto z-5 bg-blend-multiply bg-opacity-30 w-11/12 lg:w-full absolute bottom-0 h-72 bg-gradient-to-r`}
-            // style={{ background: `url(${overlay})` }}
-          ></div>
-          <div
-            className={` w-11/12 lg:w-full p-2 lg:p-5 flex gap-6 mx-auto overflow-x-scroll h-1/3  scroll-smooth snap-mandatory snap-x ${styles.main}`}
-          >
-            {info.map((item, index) => {
-              {
-                console.log(item);
-              }
-              return (
-                <div key={index} className="snap-start relative">
-                  {/* <img
-                    className={
-                      enter
-                        ? ` absolute mt-[-36px] left-0 ml-[-24px] z-20`
-                        : `hidden`
-                    }
-                    src={view_profile}
-                    alt=""
-                  /> */}
-                  <div className="snap-start relative">
-                    <div
-                      className={`${styles.hex}`}
-                      onMouseEnter={() => {
-                        setEnter(true);
-                      }}
-                      onMouseLeave={() => {
-                        setEnter(false);
-                      }}
-                    >
-                      <img
-                        onClick={() => {
-                          setOpen(true);
-                          setName(item.name);
-                        }}
-                        className=" w-18 xl:w-24 h-12 xl:ml-[-5px] absolute left-0 top-5 z-20 bg-none"
-                        src={eye}
-                        alt="view"
-                      />
-                      <div className={`${styles.hexBg}`}>
-                        <img
-                          className={`${styles.img}`}
-                          onClick={() => {
-                            setOpen(true);
-                          }}
-                          src={item.pic}
-                          alt="profile"
-                        />
-                      </div>
-                    </div>
-                    <p className="text-center font-bold text-xl text-white pt-2">
-                      {item.name}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </section>
-      )}
-    </div>
+    <section className="w-screen box-border overflow-y-hidden py-auto  bg-gray-700 h-screen px-10">
+      <div
+        className="border-2 border-dark px-10 h-[98%] w-[full] relative"
+        style={{ width: "100%" }}
+      >
+        <div
+          className={`absolute top-10 left-10 text-4xl font-bold text-white self-start flex  items-center gap-4 w-11/12`}
+        >
+          <p to="/">
+            <img
+              className="bg-white w-12 h-1/3 p-2 rounded-xl hover:cursor-pointer"
+              src={"https://cdn-icons-png.flaticon.com/512/318/318276.png"}
+              alt="back"
+            />
+          </p>
+          Team
+        </div>
+        <div id="chartdiv-extended" className="w-[100%] h-[100%]"></div>
+        <div
+          className={`absolute bottom-0 left-0 mx-5 w-11/12 lg:w-[98%] p-2 lg:p-5 flex gap-6 mx-auto overflow-x-scroll h-1/3  scroll-smooth snap-mandatory snap-x ${styles.main}`}
+        >
+          {info.map((item, index) => {
+            return (
+              <TeamCard
+                key={index}
+                setOpen={setOpen}
+                setCurrentUser={setCurrentUser}
+                data={item}
+              />
+            );
+          })}
+        </div>
+      </div>
+      {open && <Modal data={currentUser} setOpen={setOpen} />}
+    </section>
   );
 };

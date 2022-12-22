@@ -1,13 +1,16 @@
 import React from "react";
 import { to_top } from "../../assets/images";
 
-export const ProfileCard = ({ name }) => {
-  const data = [
+export const ProfileCard = ({ data }) => {
+  const info = [
     { subject: "Status", text: "Active" },
-    { subject: "Email", text: "francisxxx@gmail.com" },
-    { subject: "Phone number", text: "+237 6xx xxx xxx" },
-    { subject: "Department", text: "Technical and software" },
-    { subject: "Adress", text: "Logbessou, Douala, Cameroon" },
+    { subject: "Email", text: data.user_data.email },
+    { subject: "Phone number", text: data.user_data.phoneNumber },
+    { subject: "Department", text: data.companySector },
+    {
+      subject: "Adress",
+      text: `${data.user_data.city}, ${data.user_data.countryCode}`,
+    },
   ];
   return (
     <div
@@ -22,14 +25,14 @@ export const ProfileCard = ({ name }) => {
         <h2
           className={`text-black text-lg lg:text-xl xl:text-2xl pt-2 xl:pt-6`}
         >
-          {name}
+          {data.user_data.firstName} {data.user_data.lastName}
         </h2>
         <h3 className={`text-lg lg:text-xl pb-3 xl:pb-6`}>
           Fullstack developer
         </h3>
       </div>
       <div className={`flex flex-col gap-2 xl:gap-3 h-1/2 pt-3 xl:pt-6`}>
-        {data.map((item, index) => {
+        {info.map((item, index) => {
           return (
             <div key={index} className={`text-ash`}>
               <p className={`text-lg xl:text-lg`}>{item.subject}</p>

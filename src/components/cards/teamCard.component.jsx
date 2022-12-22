@@ -1,36 +1,51 @@
 import React, { useState } from "react";
 import styles from "./teamCard.module.css";
-import { map } from "../../assets/images";
 import { eye, view_profile } from "../../assets/svg";
-export const TeamCard = () => {
+// import styles from "./chart-map-extended/styles.module.css";
+
+export const TeamCard = ({ setOpen, setCurrentUser, data }) => {
   const [enter, setEnter] = useState(false);
+
+  let image_url;
+  if (data.profileImage) {
+    image_url = `https://camsol.directus.app/assets/${data.profileImage.id}?access_token=HTxS57Xk52L6TtrMis7kaJ-FVtee_-5Z`;
+  } else {
+    image_url = "";
+  }
+
   return (
-    <div className="snap-start relative">
+    <div
+      className="snap-start relative hover:cursor-pointer"
+      onMouseEnter={() => {
+        setEnter(true);
+      }}
+      onMouseLeave={() => {
+        setEnter(false);
+      }}
+      onClick={() => {
+        setOpen(true);
+        setCurrentUser(data);
+      }}
+    >
       <div className={`${styles.hex}`}>
-        <img
-          className={
-            enter &&
-            `w-32 h-32 absolute left-0 top-0 mt-[-48px] ml-[-26px] z-20 bg-none data-modal-toggle="popup-modal"`
-          }
-          src={view_profile}
-          alt=""
-        />
-        <img
-          onMouseEnter={() => {
-            setEnter(true);
-          }}
-          onMouseLeave={() => {
-            setEnter(false);
-          }}
-          className="w-18 h-16 absolute left-1 top-5 z-20 bg-none"
-          src={eye}
-          alt="view"
-        />
-        <div className={`${styles.hexBg}`}>
-          <img className={`${styles.img}`} src={map} alt="profile" />
-        </div>
+        <img className={`${styles.hexBg}`} src={image_url} alt="profile" />
       </div>
-      <p className="text-center font-bold text-xl text-white pt-2">NameHere</p>
+      <img
+        onClick={() => {
+          setOpen(true);
+        }}
+        className="w-18 xl:w-24 h-12 absolute left-[3px] xl:left-[-17px] top-[5px] bg-none"
+        src={eye}
+        alt="view"
+      />
+      <img
+        className={enter ? "absolute left-[-10px]  top-[5px]" : "hidden"}
+        src={view_profile}
+        alt="view"
+      />
+      <p className="text-center font-bold text-xl text-white pt-2">
+        {data.user_data.lastName}
+      </p>
     </div>
   );
 };

@@ -1,12 +1,12 @@
 import React from "react";
 import { github, linkedin_blue, web, facebook } from "../../assets/svg";
 
-export const SocialMediaCard = () => {
-  const data = [
-    { icon: github, link: "https/github.com/xxxxxxx" },
-    { icon: linkedin_blue, link: "https/linkedin.com/name/xxxxxxx" },
-    { icon: web, link: "https/website.com/xxxxxxx" },
-    { icon: facebook, link: "https/facebook.com/xxxxxxx" },
+export const SocialMediaCard = ({ data }) => {
+  const socials = [
+    { icon: github, link: data.github },
+    { icon: linkedin_blue, link: data.linkedIn },
+    { icon: web, link: data.twitter },
+    { icon: facebook, link: data.facebook },
   ];
   return (
     <div
@@ -14,18 +14,23 @@ export const SocialMediaCard = () => {
     >
       <p className={`text-lg`}>Social Media</p>
       <div className={`flex flex-col gap-2`}>
-        {data.map((item, index) => {
+        {socials.map((item, index) => {
           return (
-            <div
-              className={`flex gap-2 xl:gap-4 items-center hover:cursor-pointer`}
-              key={index}
-            >
-              <img
-                className={` w-6 h-6 lg:w-10 lg:h-10`}
-                src={item.icon}
-                alt="icon"
-              />
-              <a className={`text-purple text-lg lg:text-xl`}>{item.link}</a>
+            <div key={index}>
+              {item.link && (
+                <div
+                  className={`flex gap-2 xl:gap-4 items-center hover:cursor-pointer`}
+                >
+                  <img
+                    className={` w-6 h-6 lg:w-10 lg:h-10`}
+                    src={item.icon}
+                    alt="icon"
+                  />
+                  <a className={`text-purple text-lg lg:text-xl`}>
+                    {item.link}
+                  </a>
+                </div>
+              )}
             </div>
           );
         })}

@@ -1,17 +1,7 @@
 import React from "react";
 
-export const SkillCard = () => {
-  const skills = [
-    "JavaScript",
-    "C ++",
-    "React JS",
-    "React Native",
-    "Python",
-    "Java",
-    "Git & GitHub",
-    "DBMS - (MongoDB, SQL, etc)",
-    "Flutter",
-  ];
+export const SkillCard = ({ data }) => {
+  const skills = data.skills;
   return (
     <div
       className={`h-fit w-full bg-white rounded-lg px-8 py-4 xl:px-12 xl:py-4 text-gray-500 flex flex-col gap-4`}

@@ -1,0 +1,25 @@
+.main::-webkit-scrollbar {
+    @apply hidden;
+}
+.hex {
+    @apply block mx-auto my-0 w-[140px] lg:w-[160px] xl:w-[180px] bg-white box-border;
+    @apply  h-[121.24px] lg:h-[138.56px] xl:h-[155.88px]; /* width * 0.866 */
+    @apply hover:cursor-pointer;
+    -webkit-clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+    -moz-clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+}
+
+.hexBg {
+    @apply absolute bg-white; /*color of the main-background*/
+    @apply top-[1px]; /* equal to border thickness */
+    @apply left-[1px]; /* equal to border thickness */
+    @apply w-[138px] lg:w-[158px] xl:w-[178px]; /* container width - (border thickness * 2) */
+    @apply h-[119.24px] lg:h-[136.56px] xl:h-[153.88px]; /* container height - (border thickness * 2) */
+    -webkit-clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+    -moz-clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+}
+.hex .img {
+    @apply absolute w-full h-full object-cover;
+    -webkit-clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+    -moz-clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+}
